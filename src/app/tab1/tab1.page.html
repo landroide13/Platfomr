@@ -1,17 +1,23 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      Articles
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Artilces</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <app-explore-container name="articles"></app-explore-container>
+ <ion-card [routerLink]="['article-detail', article.id]" button *ngFor="let article of (articles | async)">
+    <ion-card-header>
+      <ion-card-title>{{ article.name }}</ion-card-title>
+      <ion-card-subtitle>{{ article.author }}</ion-card-subtitle>
+    </ion-card-header>
+  </ion-card>
+
+ 
 </ion-content>
+
+
+
+

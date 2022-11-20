@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Article } from '../article';
+import { Type } from '../type';
+import { Category } from '../category';
+import { Author } from '../author';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -16,6 +19,18 @@ export class ArticlesService {
 
   getArticles(): Observable<Article[]>{
     return this.http.get<Article[]>(API);
+  }
+
+  getTypes(): Observable<Type[]>{
+    return this.http.get<Type[]>(API);
+  }
+
+  getAuthors(): Observable<Author[]>{
+    return this.http.get<Author[]>(API);
+  }
+
+  getCategories(): Observable<Category[]>{
+    return this.http.get<Category[]>(API);
   }
 
 }
