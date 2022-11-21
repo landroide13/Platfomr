@@ -21,6 +21,7 @@ export class Tab1Page implements OnInit {
   }
 
   ngOnInit(){
+    console.log(this.articles);
     this.getArticles();
   }
 

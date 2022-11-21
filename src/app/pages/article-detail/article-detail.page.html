@@ -9,7 +9,7 @@
 
 <ion-content>
 
-  <div class="" *ngIf="!articles">
+  <div class="" *ngIf="!article">
     <ion-card>
       <ion-skeleton-text class="img" animated></ion-skeleton-text>
       <ion-card-header>
@@ -21,7 +21,7 @@
 
   <ion-card>
     <ion-card-header>
-      <ion-card-title>Article title {{ (article | async).name }}</ion-card-title>
+      <ion-card-title>Article title {{ article }}</ion-card-title>
       <ion-card-subtitle></ion-card-subtitle>
     </ion-card-header>
 

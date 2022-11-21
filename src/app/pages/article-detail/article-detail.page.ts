@@ -13,13 +13,16 @@ export class ArticleDetailPage implements OnInit {
 
   article!: Observable<Article>;
 
-  constructor(private data: ArticlesService, private actR: ActivatedRoute) {
-    const id = actR.snapshot.params['id'];
+  constructor(private data: ArticlesService, private actR: ActivatedRoute) {}
+
+   getArticle(){
+    const id = this.actR.snapshot.params['id'];
     this.article = this.data.getArticle(id);
    }
 
-  ngOnInit() {
-    console.log('Hello'+this.article)
+ async ngOnInit() {
+    await this.getArticle();
+    console.log('Hello'+ this.article)
   }
 
 }
