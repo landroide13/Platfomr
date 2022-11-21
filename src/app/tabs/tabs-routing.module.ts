@@ -15,8 +15,8 @@ const routes: Routes = [
             loadChildren: () => import('../tab1/tab1.module').then(m => m.Tab1PageModule)
           },
           {
-            path: 'components/article-details/:id',
-            loadChildren: () => import('../components/article-details/article-details.component').then( m => m.ArticleDetailsComponent)
+            path: 'pages/article-detail/:id',
+            loadChildren: () => import('../pages/article-detail/article-detail.module').then( m => m.ArticleDetailPageModule)
           }
         ]
       },
