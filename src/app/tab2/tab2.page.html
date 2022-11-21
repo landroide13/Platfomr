@@ -7,11 +7,31 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Categories</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <app-explore-container name="Categories"></app-explore-container>
+  <div class="" *ngIf="!categories">
+    <ion-card>
+      <ion-skeleton-text class="img" animated></ion-skeleton-text>
+      <ion-card-header>
+        <ion-card-title><ion-skeleton-text animated></ion-skeleton-text></ion-card-title>
+        <ion-card-title><ion-skeleton-text animated></ion-skeleton-text></ion-card-title>
+      </ion-card-header>
+    </ion-card>
+
+    <ion-card>
+      <ion-skeleton-text class="img" animated></ion-skeleton-text>
+      <ion-card-header>
+        <ion-card-title><ion-skeleton-text animated></ion-skeleton-text></ion-card-title>
+        <ion-card-title><ion-skeleton-text animated></ion-skeleton-text></ion-card-title>
+      </ion-card-header>
+    </ion-card>
+  </div>
+
+  <ion-card button *ngFor="let category of (categories | async)">
+    <ion-card-header>
+      <ion-card-title>{{ category.name }}</ion-card-title>
+      <ion-card-subtitle></ion-card-subtitle>
+    </ion-card-header>
+  </ion-card>
+
+
 </ion-content>
