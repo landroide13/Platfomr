@@ -22,7 +22,7 @@ export class ArticleDetailPage implements OnInit {
 
  async ngOnInit() {
     await this.getArticle();
-    console.log('Hello'+ this.article)
+    console.log('Hello  '+ this.article)
   }
 
 }
