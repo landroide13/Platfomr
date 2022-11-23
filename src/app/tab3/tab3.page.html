@@ -29,7 +29,7 @@
   <ion-card [routerLink]="['pages/author-list', author._id]"  button *ngFor="let author of (authors | async)">
     <ion-card-header>
       <ion-card-title>Author: {{ author.name }}</ion-card-title>
-      <ion-card-subtitle></ion-card-subtitle>
+      <ion-card-subtitle>Works: {{ author.articles.length }}</ion-card-subtitle>
       
     </ion-card-header>
   </ion-card>
