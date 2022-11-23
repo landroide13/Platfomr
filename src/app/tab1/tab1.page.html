@@ -26,10 +26,10 @@
     </ion-card>
   </div>
 
- <ion-card [routerLink]="['pages/article-detail', article.id]"  button *ngFor="let article of (articles | async)">
+ <ion-card [routerLink]="['pages/article-detail', article._id]"  button *ngFor="let article of (articles | async)">
     <ion-card-header>
       <ion-card-title>Title: {{ article.name }}</ion-card-title>
-      <ion-card-subtitle>{{ article.category }}</ion-card-subtitle>
+      <ion-card-subtitle>Id: {{ article._id }}</ion-card-subtitle>
     </ion-card-header>
   </ion-card>
 

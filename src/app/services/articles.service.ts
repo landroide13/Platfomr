@@ -13,12 +13,12 @@ export class ArticlesService {
 
   constructor(private http: HttpClient) { }
 
-  getArticle(idx: any): Observable<Article>{
-    return this.http.get<Article>(API + "/" + idx);
+  getArticle(idx: any):any{
+    return this.http.get<any>(API + "/" + idx);
   }
 
-  getArticles(): Observable<Article[]>{
-    return this.http.get<Article[]>(API);
+  getArticles(): any{
+    return this.http.get<any>(API);
   }
 
   /*

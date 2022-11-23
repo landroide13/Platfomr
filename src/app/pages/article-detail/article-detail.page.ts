@@ -11,18 +11,16 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ArticleDetailPage implements OnInit {
 
-  article!: Observable<Article>;
+  article!: any;
 
-  constructor(private data: ArticlesService, private actR: ActivatedRoute) {}
-
-   getArticle(){
+  constructor(private data: ArticlesService, private actR: ActivatedRoute) {
     const id = this.actR.snapshot.params['id'];
-    this.article = this.data.getArticle(id);
-   }
+    this.article = this.data.getArticle(id).subscribe((res: any) => this.article = res);
+  }
+   
 
- async ngOnInit() {
-    await this.getArticle();
-    console.log('Hello  '+ this.article)
+  ngOnInit() {
+    console.log('Hello  '+ this.article.name)
   }
 
 }
