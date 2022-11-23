@@ -1,17 +1,37 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Profile
+      Authors
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Profile</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <app-explore-container name="Profile"></app-explore-container>
+  <div class="" *ngIf="!authors">
+    <ion-card>
+      <ion-skeleton-text class="img" animated></ion-skeleton-text>
+      <ion-card-header>
+        <ion-card-title><ion-skeleton-text animated></ion-skeleton-text></ion-card-title>
+        <ion-card-title><ion-skeleton-text animated></ion-skeleton-text></ion-card-title>
+      </ion-card-header>
+    </ion-card>
+
+    <ion-card>
+      <ion-skeleton-text class="img" animated></ion-skeleton-text>
+      <ion-card-header>
+        <ion-card-title><ion-skeleton-text animated></ion-skeleton-text></ion-card-title>
+        <ion-card-title><ion-skeleton-text animated></ion-skeleton-text></ion-card-title>
+      </ion-card-header>
+    </ion-card>
+  </div>
+
+  <ion-card [routerLink]="['pages/author-list', author._id]"  button *ngFor="let author of (authors | async)">
+    <ion-card-header>
+      <ion-card-title>Author: {{ author.name }}</ion-card-title>
+      <ion-card-subtitle></ion-card-subtitle>
+      
+    </ion-card-header>
+  </ion-card>
+
 </ion-content>

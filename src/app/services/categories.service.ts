@@ -15,6 +15,9 @@ export class CategoriesService {
     return this.http.get<any>(API);
   }
 
+  getCategory(idx: any):any{
+    return this.http.get<any>(API+ "/" + idx);
+  }
 
 }
 

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ArticlesService } from '../services/articles.service';
-import { Article } from '../article';
 
 @Component({
   selector: 'app-tab1',
@@ -10,7 +9,8 @@ import { Article } from '../article';
 })
 export class Tab1Page implements OnInit {
 
-  articles!: Observable<Article[]>;
+  articles:any;
+  category:any;
 
   constructor(private data: ArticlesService) {}
 
@@ -20,8 +20,8 @@ export class Tab1Page implements OnInit {
     }, 3000)
   }
 
+
   ngOnInit(){
-    console.log(this.articles);
     this.getArticles();
   }
 

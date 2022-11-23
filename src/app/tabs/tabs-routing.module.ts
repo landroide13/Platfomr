@@ -22,11 +22,32 @@ const routes: Routes = [
       },
       {
         path: 'tab2',
-        loadChildren: () => import('../tab2/tab2.module').then(m => m.Tab2PageModule)
+        children:[
+          {
+            path: '',
+            loadChildren: () => import('../tab2/tab2.module').then(m => m.Tab2PageModule)
+          },
+          {
+            path: 'pages/category-list',
+            loadChildren: () => import('../pages/category-list/category-list.module').then( m => m.CategoryListPageModule)
+          }
+        ]
+        
       },
       {
         path: 'tab3',
-        loadChildren: () => import('../tab3/tab3.module').then(m => m.Tab3PageModule)
+        children:[
+          {
+            path:'',
+            loadChildren: () => import('../tab3/tab3.module').then(m => m.Tab3PageModule)
+          },
+          {
+            path: 'pages/author-list/:id',
+            loadChildren: () => import('../pages/author-list/author-list.module').then( m => m.AuthorListPageModule)
+
+          }
+        ]
+        
       },
       {
         path: '',

@@ -9,7 +9,7 @@
 
 <ion-content>
 
-  <div class="" *ngIf="!article">
+  <div class="" *ngIf="!author">
     <ion-card>
       <ion-skeleton-text class="img" animated></ion-skeleton-text>
       <ion-card-header>
@@ -21,13 +21,17 @@
 
   <ion-card>
     <ion-card-header>
-      <ion-card-title>Title: {{ article!.name }}</ion-card-title>
+      <ion-card-title>Name: {{ author!.name }}</ion-card-title>
      
     </ion-card-header>
    
     <ion-card-content>
-      {{ article!.text }}
+      
     </ion-card-content>
+  </ion-card>
+
+  <ion-card  *ngFor="let ar of author.articles">
+    <ion-card-title>{{ ar.name }}</ion-card-title>
   </ion-card>
 
 </ion-content>

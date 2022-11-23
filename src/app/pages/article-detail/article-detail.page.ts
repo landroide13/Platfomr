@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
 import { ArticlesService } from 'src/app/services/articles.service';
 import { ActivatedRoute } from '@angular/router';
 
@@ -10,16 +9,17 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ArticleDetailPage implements OnInit {
 
-  article!: any;
+  article: any;
+  constructor(private artServ: ArticlesService, private actR: ActivatedRoute) {}
 
-  constructor(private data: ArticlesService, private actR: ActivatedRoute) {
+  getArticle(){
     const id = this.actR.snapshot.params['id'];
-    this.article = this.data.getArticle(id).subscribe((res: any) => this.article = res);
+    this.article = this.artServ.getArticle(id).subscribe((res: any) => this.article = res);
   }
    
 
   ngOnInit() {
-    console.log('Hello  '+ this.article.name)
+    this.getArticle();
   }
 
 }
