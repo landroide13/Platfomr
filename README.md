@@ -1,4 +1,4 @@
-# Platfomr
+# Platform
 Student Platform assignment Frontend
 
 # You need have install Ionic:
