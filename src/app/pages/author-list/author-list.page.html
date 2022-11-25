@@ -22,14 +22,16 @@
   <ion-card>
     <ion-card-header>
       <ion-card-title>{{ author!.name }}</ion-card-title>
+      <ion-card-subtitle>{{ author!.nationality }}</ion-card-subtitle>
     </ion-card-header>
   </ion-card>
 
   <h3 class="ion-text-center">Works</h3>
-  <ion-list>
-    <ion-item *ngFor="let ar of author.articles">
-     <ion-label [routerLink]="['./article-detail', ar._id]">{{ ar.name }}</ion-label> 
-    </ion-item>
-  </ion-list>
+
+  <ion-card *ngFor="let ar of author.articles" [routerLink]="['./pages/article-detail', ar._id]">
+    <ion-card-header>
+      <ion-card-title>{{ ar.name }}</ion-card-title>
+   </ion-card-header>
+  </ion-card>  
 
 </ion-content>

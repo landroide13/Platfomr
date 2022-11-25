@@ -14,10 +14,10 @@ const routes: Routes = [
             path:'',
             loadChildren: () => import('../tab1/tab1.module').then(m => m.Tab1PageModule)
           },
-          {
+         {
             path: 'pages/article-detail/:id',
             loadChildren: () => import('../pages/article-detail/article-detail.module').then( m => m.ArticleDetailPageModule)
-          }
+          } 
         ]
       },
       {
@@ -43,11 +43,18 @@ const routes: Routes = [
           },
           {
             path: 'pages/author-list/:id',
-            loadChildren: () => import('../pages/author-list/author-list.module').then( m => m.AuthorListPageModule)
-
+            children:[
+              {
+                path:'',
+                loadChildren: () => import('../pages/author-list/author-list.module').then( m => m.AuthorListPageModule)
+              },
+              {
+                path: 'pages/article-detail/:id',
+                loadChildren: () => import('../pages/article-detail/article-detail.module').then( m => m.ArticleDetailPageModule)
+              } 
+            ]
           }
         ]
-        
       },
       {
         path: '',
